@@ -46,7 +46,7 @@ struct ContentView: View {
     }
     
     private func setThumbColor() {
-        thumbColor = UIColor(.red.opacity(Double(computeScore()) * 0.01))
+        thumbColor = UIColor(.red.opacity(Double(computeScore()) / 100))
     }
 }
 
