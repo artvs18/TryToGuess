@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var targetValue = Int.random(in: 0...100)
     @State private var currentValue = Double.random(in: 0...100) 
-    @State private var thumbColor = UIColor(.red)
+    @State private var thumbColor = Color.red
     @State private var isPresented = false
     
     var body: some View {
@@ -46,7 +46,7 @@ struct ContentView: View {
     }
     
     private func setThumbColor() {
-        thumbColor = UIColor(.red.opacity(Double(computeScore()) / 100))
+        thumbColor = .red.opacity(Double(computeScore()) / 100)
     }
 }
 
