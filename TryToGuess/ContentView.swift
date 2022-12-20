@@ -15,7 +15,7 @@ struct ContentView: View {
     
     var body: some View {
         VStack(spacing: 30) {
-            Text("Подвиньте слайдер как можно ближе к:  \(targetValue)")
+            Text("Подвиньте слайдер как можно ближе к: \(targetValue)")
              
             HStack {
                 Text("0")
