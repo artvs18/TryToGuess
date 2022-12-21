@@ -9,8 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var targetValue = Int.random(in: 0...100)
-    @State private var currentValue = Double.random(in: 0...100) 
-    @State private var thumbColor = Color.red
+    @State private var currentValue = Double.random(in: 0...100)
     @State private var isPresented = false
     
     var body: some View {
@@ -19,9 +18,11 @@ struct ContentView: View {
              
             HStack {
                 Text("0")
-                SliderView(currentValue: $currentValue, thumbColor: thumbColor)
-                    .onAppear { setThumbColor() }
-                    .onChange(of: currentValue) { _ in setThumbColor() }
+                SliderView(
+                    currentValue: $currentValue,
+                    thumbColor: .red,
+                    thumbOpacity: Double(computeScore()) / 100
+                )
                 Text("100")
             }
             
@@ -43,10 +44,6 @@ struct ContentView: View {
     private func computeScore() -> Int {
         let difference = abs(targetValue - lround(currentValue))
         return 100 - difference
-    }
-    
-    private func setThumbColor() {
-        thumbColor = .red.opacity(Double(computeScore()) / 100)
     }
 }
 
